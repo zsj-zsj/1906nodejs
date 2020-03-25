@@ -6,7 +6,10 @@ var connection = mysql.createConnection({
   database : 'open1906'
 });
  
-connection.connect();
+connection.connect((err)=>{
+    if(err) throw err;
+    console.log('连接成功');
+});
  
 connection.query('select * from reg', function (error, results, fields) {
   if (error) throw error;
